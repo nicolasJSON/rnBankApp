@@ -3,6 +3,7 @@ import { StatusBar } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 
 import Home from './screens/Home';
+import SingUP from './screens/SingUP'
 import theme from './styles/theme'
 
 export default function App() {
@@ -12,7 +13,7 @@ export default function App() {
      translucent
      backgroundColor="transparent"
      />
-      <Home/>
+      <SingUP/>
    </ThemeProvider>
   );
 }
