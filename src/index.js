@@ -3,8 +3,9 @@ import { StatusBar } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 
 import Home from './screens/Home';
-import SingUP from './screens/SingUP'
-import theme from './styles/theme'
+import SingUP from './screens/SingUP';
+import Pix from './screens/Pix';
+import theme from './styles/theme';
 
 export default function App() {
  return (
@@ -13,7 +14,7 @@ export default function App() {
      translucent
      backgroundColor="transparent"
      />
-      <SingUP/>
+      <Pix/>
    </ThemeProvider>
   );
 }
