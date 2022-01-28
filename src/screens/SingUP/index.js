@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { FlatList, Keyboard} from 'react-native';
-
 import {Container, Footer} from './styles';
 
 import ChatBar from '../../components/ChatBar';
 import ChatBallons from '../../components/ChatBallons';
 import * as bot from '../../assets/bot/mensagens';
-import {validarCPF} from '../../utils/validation';
+import * as validate from '../../utils/validation';
 
 export default function SingUP() {
   const [posicaoBot, setPosicaoBot] = useState(0);
@@ -58,11 +57,9 @@ export default function SingUP() {
     setEsperandoResposta(false);
 
     let novosDadosUsuario = dadosUsuario;
-
     novosDadosUsuario[bot.mensagens[posicaoBot].dado] = texto;
 
     setDadosUsuario(novosDadosUsuario);
-
     setTexto('');
     Keyboard.dismiss();
   }
@@ -70,9 +67,13 @@ export default function SingUP() {
   function validarDados() {
     switch (bot.mensagens[posicaoBot].dado) {
       case 'CPF':
-        return validarCPF(dadosUsuario.CPF);
+        return validate.validarCPF(dadosUsuario.CPF);
       case 'NOME':
-        return !/(?:\.|,|[0-9])*/.test(dadosUsuario.NOME);
+        return /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]+$/.test(dadosUsuario.NOME);
+      case 'NASCIMENTO':
+        return validate.validarDataDeNascimento(dadosUsuario.NASCIMENTO)
+      case 'SENHA':
+        return /[0-9]/.test(dadosUsuario.SENHA) && dadosUsuario.SENHA.length == 4
     }
   }
 
