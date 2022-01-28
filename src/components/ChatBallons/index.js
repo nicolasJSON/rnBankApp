@@ -1,8 +1,16 @@
 import React from 'react';
 import { View } from 'react-native';
 
-export default function ChatBallons() {
+import {
+Container,
+ChatBallonContainer,
+ChatBallonText
+} from './styles'
+
+export default function ChatBallons({user, mensagem}) {
  return (
-   <View/>
+      <ChatBallonContainer user={user} mensagem={mensagem}>
+        <ChatBallonText mensagem={mensagem} user={user}>{mensagem}</ChatBallonText>
+      </ChatBallonContainer>
   );
 }

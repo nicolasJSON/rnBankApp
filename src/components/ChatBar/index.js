@@ -7,11 +7,14 @@ Keyboard
 } from './styles';
 import SendIcon from '../../assets/svg/ChatBar/send_Icon.svg'
 
-export default function ChatBar() {
+export default function ChatBar({texto,armazenarMensagens, enviarMensagem}) {
  return (
    <Container>
-       <Keyboard/>
-        <TouchableWithoutFeedback>
+       <Keyboard
+       value={texto}
+       onChangeText={ armazenarMensagens }
+       />
+        <TouchableWithoutFeedback onPress={ enviarMensagem }>
           <SendIcon/>
         </TouchableWithoutFeedback>
    </Container>

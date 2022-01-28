@@ -4,6 +4,7 @@ export default {
 
         shape: '#FFFFFF',
         text: '#E1E1E6',
+        text_dark: '#222222',
         background: '#181C20',
         background_light: '#22282E',
     },

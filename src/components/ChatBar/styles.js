@@ -13,7 +13,7 @@ export const Container = styled.View`
 `;
 
 export const Keyboard = styled.TextInput.attrs({
-    placeholder: 'teste',
+    placeholder: 'Digite seu CPF...',
     placeholderTextColor: '#22282E'
 })`
   width: 88%;
